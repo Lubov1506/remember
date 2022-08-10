@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Switcher from './components/Switcher';
+import smile from './components/Switcher/smile.png';
+import sad from './components/Switcher/sad.png';
 
-function App() {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state= {
+      mood: true,
+      moodText: 'smile'
+    }
+  }
+  clickHandler = () =>{
+    this.setState({
+        mood: !this.state.mood,
+        moodText: this.state.moodText==='smile' ? 'sad' : 'smile'
+    })
+    this.changeBgc()
+}
+  changeBgc = () =>{
+    this.setState({
+      bgc: this.state.bgc === 'smile' ? 'sad' : 'smile'
+    })
+  }
+  render(){
+
+    const {moodText, mood}=this.state
+    const moodPix = mood ? smile : sad
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <div className={moodText}>
+   <Switcher mood={mood} moodText={moodText} moodPix={moodPix} bgColor={moodText} changeBgc={this.clickHandler}/>
+   </div>
+  );    
+  }
+
 }
 
 export default App;

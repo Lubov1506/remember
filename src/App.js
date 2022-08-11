@@ -4,6 +4,7 @@ import Switcher from './components/Switcher';
 import smile from './components/Switcher/smile.png';
 import sad from './components/Switcher/sad.png';
 import GreenCircle from './components/GreenCircle';
+import ModalWindow from './components/ModalWindow';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends React.Component {
     const moodPix = mood ? smile : sad
   return (
    <div className={moodText}>
+    <ModalWindow/>
    <Switcher mood={mood} moodText={moodText} moodPix={moodPix} bgColor={moodText} changeBgc={this.clickHandler}/>
    <GreenCircle moodText={moodText}/>
    </div>

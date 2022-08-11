@@ -13,11 +13,7 @@
     align-items: center;
     }
     
-    .modal-window {
-        /* position: absolute;
-        top: 35%;
-        left: 35%; */
-    
+    .modal-window {    
         z-index:3;
         width: 25vw;
         min-width: 200px;

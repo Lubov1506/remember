@@ -8,13 +8,10 @@ class Timer extends Component {
     }
     this.timerId = null
   }
-  shouldComponentUpdate() {
-    console.log('shouldComponentUpdate');
-    if(this.state.count>=5){
-        return false
-    }
-    return true
+  componentDidMount(){
+    this.start()
   }
+
   tick = () =>{
     const {count} = this.state;
     this.setState((state, props) => {
@@ -25,19 +22,31 @@ class Timer extends Component {
     this.timerId =  setTimeout(this.tick, 1000);
 }
   start = () => {
-    this.tick()
+    if(!this.timerId){
+        this.tick()
+    }
   }
   stop=()=>{
 clearTimeout(this.timerId)
+this.timerId = null
+  }
+  reset=()=>{
+    this.stop()
+    this.setState({
+    count: new Date(0,0,0,0)        
+    })
+
   }
   render () {
     const {count} = this.state
+
     return (
-      <>
+        <>
         <h1>{count.toLocaleTimeString()}</h1>
         <button onClick={this.start}>Start</button>
         <button onClick={this.stop}>Stop</button>
-      </>
+        <button onClick={this.reset}>Reset</button>
+        </>
     )
   }
 }

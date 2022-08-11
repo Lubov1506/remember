@@ -4,7 +4,7 @@ class Timer extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      count: 0
+      count: new Date(0,0,0,0)
     }
     this.timerId = null
   }
@@ -15,24 +15,28 @@ class Timer extends Component {
     }
     return true
   }
-  componentWillUnmount () {
-    console.log('componentWillUnmount');
-    clearInterval(this.timerId)
-  }
+  tick = () =>{
+    const {count} = this.state;
+    this.setState((state, props) => {
+        const {count} = state;
+        const newDate = new Date(count.setSeconds(count.getSeconds()+1));
+        return {count: newDate}
+    })
+    this.timerId =  setTimeout(this.tick, 1000);
+}
   start = () => {
-    this.timerId = setInterval(() => {
-        console.log('interval');
-      this.setState({
-        count: this.state.count + 1
-      })
-    }, 1000)
-    console.log(this.timerId);
+    this.tick()
+  }
+  stop=()=>{
+clearTimeout(this.timerId)
   }
   render () {
+    const {count} = this.state
     return (
       <>
-        <h1>{this.state.count}</h1>
+        <h1>{count.toLocaleTimeString()}</h1>
         <button onClick={this.start}>Start</button>
+        <button onClick={this.stop}>Stop</button>
       </>
     )
   }

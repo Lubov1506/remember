@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css'
-import SignInForm from './components/SignInForm'
+import CalculateForm from './components/CalculateForm'
 
 class App extends React.Component {
   render () {
     return (
       <>
-        <SignInForm />
+        <CalculateForm />
       </>
     )
   }

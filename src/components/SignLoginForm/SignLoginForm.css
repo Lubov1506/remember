@@ -80,3 +80,9 @@ input {
 .names input {
   width: 45%;
 }
+
+
+.animate{
+  animation: animate__fadeIn;
+  animation-duration: 15s;
+}

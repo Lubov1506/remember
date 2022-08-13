@@ -14,6 +14,9 @@ class Login extends Component {
       [name]: value
     })
   }
+  submit=()=>{
+    this.props.sendData(this.state)
+  }
   render () {
     const { email, password } = this.state
     return (
@@ -34,7 +37,7 @@ class Login extends Component {
             value={password}
             onChange={this.inputHhandler}
           />
-          <button className='submit-button '>Log In</button>
+          <button className='submit-button' onClick={this.submit}>Log In</button>
         </div>
       </>
     )

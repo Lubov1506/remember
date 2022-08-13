@@ -16,6 +16,18 @@ class Sign extends Component {
       [name]: value
     })
   }
+  submit=()=>{
+    this.props.sendData(this.state)
+    this.reset()
+  }
+  reset=()=>{
+    this.setState({
+      firstName:'',
+      lastName: '',
+      email:'',
+      password: ''
+    })
+  }
   render () {
     const {firstName, lastName, email, password} = this.state
     return (
@@ -28,7 +40,7 @@ class Sign extends Component {
           </div>
           <input type='email' placeholder='Email Address' name='email' value={email} onChange={this.inputHhandler}/>
           <input type='password' placeholder='Password' name='password' value={password} onChange={this.inputHhandler}/>
-          <button className='submit-button '>Get Started</button>
+          <button className='submit-button' onClick={this.submit}>Get Started</button>
         </div>
       </>
     )

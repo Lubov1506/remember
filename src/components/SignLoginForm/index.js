@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Login from './Login'
 import Sign from './Sign'
 import './SignLoginForm.css'
+import 'animate.css'
+
 class SignLoginForm extends Component {
   constructor (props) {
     super(props)
@@ -27,6 +29,9 @@ class SignLoginForm extends Component {
     }
     return true
   }
+  getDataFromChild = (data) =>{
+    console.log(data);
+  }
   render () {
     const { view } = this.state
     return (
@@ -48,7 +53,7 @@ class SignLoginForm extends Component {
               Log In
             </button>
           </div>
-          {view ? <Sign /> : <Login />}
+          {view ? <Sign sendData={this.getDataFromChild} className='animate__fadeIn'/> : <Login sendData={this.getDataFromChild} />}
         </section>
       </div>
     )

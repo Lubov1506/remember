@@ -1,0 +1,15 @@
+.container{
+display: flex;
+flex-direction: row;
+background-color: black;
+padding: 30px;
+border: 2px solid greenyellow;
+}
+.inputNormal{
+    background-color: azure;
+    
+}
+.inputInvalid{
+    border: 2px solid red;
+    background-color: wheat;
+}

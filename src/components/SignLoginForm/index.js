@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Login from './Login'
 import Sign from './Sign'
-import './SignLoginForm.css'
+import styles from './SignLoginForm.module.scss'
 import 'animate.css'
+import cx from 'classnames'
 
 class SignLoginForm extends Component {
   constructor (props) {
@@ -35,18 +36,24 @@ class SignLoginForm extends Component {
   render () {
     const { view } = this.state
     return (
-      <div className='overlay'>
-        <section className='form-container'>
-          <div className='control-btn '>
+      <div className={styles['overlay']}>
+        <section className={cx(styles['form-container'], 'animate__animated', 'animate__fadeIn')}>
+          <div className={styles['control-btn']}>
             <button
-              className={view ? 'button-on' : 'button-off'}
+              className={cx({
+                [styles['button-on']]: view,
+                [styles['button-off']]: !view,
+              })}
               onClick={this.buttonToggle}
               name='signUp'
             >
               Sign Up
             </button>
             <button
-              className={view ? 'button-off' : 'button-on'}
+              className={cx({
+                [styles['button-on']]: !view,
+                [styles['button-off']]: view,
+              })}
               onClick={this.buttonToggle}
               name='logIn'
             >

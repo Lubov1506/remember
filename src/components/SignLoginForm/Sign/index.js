@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import styles from '../SignLoginForm.module.scss';
 
 class Sign extends Component {
   constructor(props) {
@@ -32,15 +33,15 @@ class Sign extends Component {
     const {firstName, lastName, email, password} = this.state
     return (
       <>
-        <div className='container'>
-          <h3 className='header'>Sign Up for Free</h3>
-          <div className='names'>
+        <div className={styles['container']}>
+          <h3 className={styles['header']}>Sign Up for Free</h3>
+          <div className={styles['names']}>
             <input type='text' placeholder='First Name' name='firstName' value={firstName} onChange={this.inputHhandler}/>
             <input type='text' placeholder='Last Name' name='lastName' value={lastName} onChange={this.inputHhandler}/>
           </div>
           <input type='email' placeholder='Email Address' name='email' value={email} onChange={this.inputHhandler}/>
           <input type='password' placeholder='Password' name='password' value={password} onChange={this.inputHhandler}/>
-          <button className='submit-button' onClick={this.submit}>Get Started</button>
+          <button className={styles['submit-button']} onClick={this.submit}>Get Started</button>
         </div>
       </>
     )

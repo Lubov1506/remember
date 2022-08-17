@@ -1,29 +1,23 @@
 import React from 'react'
-import Column from './components/Grid/Column'
-import Container from './components/Grid/Container'
-import Row from './components/Grid/Row'
+import FlexContainer from './components/FlexContainer'
 
 class App extends React.Component {
   render () {
     return (
-        <Container>
-          <Row>
-            <Column colNum={6}>
-              <div>Content 1</div>
-            </Column>
-            <Column colNum={6}>
-              <div>Content 2</div>
-            </Column>
-          </Row>
-          <Row>
-            <Column colNum={6}>
-              <div>Content 3</div>
-            </Column>
-            <Column colNum={6}>
-              <div>Content 4</div>
-            </Column>
-          </Row>
-        </Container>
+        <FlexContainer flexDirection='column-reverse'
+        justifyContent='space-around'
+        alignItems='end'>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>         
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+          <div>10</div>
+          </FlexContainer>
     )
   }
 }

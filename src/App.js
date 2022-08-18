@@ -1,23 +1,17 @@
 import React from 'react'
 import FlexContainer from './components/FlexContainer'
+import ImageWrapper from './components/ImageWrapper'
 
 class App extends React.Component {
   render () {
     return (
-        <FlexContainer flexDirection='column-reverse'
-        justifyContent='space-around'
-        alignItems='end'>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>         
-          <div>4</div>
-          <div>5</div>
-          <div>6</div>
-          <div>7</div>
-          <div>8</div>
-          <div>9</div>
-          <div>10</div>
-          </FlexContainer>
+      <ImageWrapper width='300px' height='150px' onClick={()=>{alert('Click')}}>
+        <img
+          width='100%'
+          src='https://st3.depositphotos.com/1658575/18194/i/450/depositphotos_181944202-stock-photo-hourglass-sunrise-outside.jpg'
+          alt='img'
+        />
+      </ImageWrapper>
     )
   }
 }

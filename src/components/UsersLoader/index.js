@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getUsers
  } from '../../api'
+import UserList from './UserList'
 class UsersLoader extends Component {
   constructor (props) {
     super(props)
@@ -49,16 +50,14 @@ class UsersLoader extends Component {
   render () {
     console.log('render');
     const { users, isFetching, isError } = this.state
-    const usersArray = users.map((user,id) => {
-      return <li key={id}>{JSON.stringify(user, null, 4)}</li>
-    })
+
     return (
       <>
         {isFetching && <div>Loading...</div>}
         {isError ? <div>Error</div> : null}
         <button onClick={this.prev}>Prev</button>
         <button onClick={this.next}>Next</button>
-        <ul>{usersArray}</ul>
+        <UserList users={users}/>
       </>
     )
   }

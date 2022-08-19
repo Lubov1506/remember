@@ -1,0 +1,7 @@
+.user-card{
+    display: flex;
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

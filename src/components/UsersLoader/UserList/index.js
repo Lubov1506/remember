@@ -3,6 +3,7 @@ import UserCard from '../UserCard'
 
 const UserList = props => {
   const { users } = props
+  console.log(users);
 const cardArray = users.map(user => {
     const {
       name: { first, last },
@@ -22,8 +23,12 @@ const cardArray = users.map(user => {
       </UserCard>
     )
   })
+  const inlineStyles={
+    display: 'flex',
+    flexFlow: 'row wrap'
+  }
   return (
-    <ul>
+    <ul style={inlineStyles}>
         {cardArray}
     </ul>
   )

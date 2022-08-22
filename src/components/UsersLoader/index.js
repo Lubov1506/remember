@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { getUsers
- } from '../../api'
+import { getUsers } from '../../api'
 import UserList from './UserList'
+import styles from './UserLoader.module.css'
+
 class UsersLoader extends Component {
   constructor (props) {
     super(props)
@@ -13,17 +14,17 @@ class UsersLoader extends Component {
     }
   }
   componentDidMount = () => {
-  this.load()
+    this.load()
   }
   prev = () => {
-    this.setState((state, props) => ({ page: state.page - 1 }))
+    this.setState(({ page }) => ({ page: page - 1 }))
   }
   next = () => {
-    this.setState((state, props) => ({ page: state.page + 1 }))
+    this.setState(({ page }) => ({ page: page + 1 }))
   }
-  load=()=>{
+  load = () => {
     const { page } = this.state
-    getUsers(page)
+    getUsers({ page })
       .then(data => {
         this.setState({
           users: data.results
@@ -40,24 +41,23 @@ class UsersLoader extends Component {
         })
       })
   }
-  componentDidUpdate=(prevProps, prevState)=>{
+  componentDidUpdate = (prevProps, prevState) => {
     const { page } = this.state
-    if(prevState.page!== page){
-       this.load()
+    if (prevState.page !== page) {
+      this.load()
     }
-
   }
   render () {
-    console.log('render');
+    console.log('render')
     const { users, isFetching, isError } = this.state
 
     return (
       <>
-        {isFetching && <div>Loading...</div>}
         {isError ? <div>Error</div> : null}
         <button onClick={this.prev}>Prev</button>
         <button onClick={this.next}>Next</button>
-        <UserList users={users}/>
+        <UserList users={users} prev={this.prev} next={this.next} />
+        {isFetching && <div className={styles['loader']}>Loading...</div>}
       </>
     )
   }

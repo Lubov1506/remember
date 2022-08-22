@@ -1,5 +1,4 @@
-export default{
-    API_KEY: 'freshcode',
+export default {
+    API_KEY: 'JS-DFE2021-1',
     BASE_URL: 'https://randomuser.me/api/',
-    DEFAULT_AMOUNT:10
-}
+  };

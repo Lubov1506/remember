@@ -17,4 +17,5 @@ export const getUsers = options => {
   const query = queryString.stringify(finalOptions);
 
   return fetch(`${config.BASE_URL}?${query}`)
-    .then(res => res.json())}
+    .then(res => res.json())
+  }

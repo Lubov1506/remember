@@ -43,7 +43,7 @@ class UsersLoader extends Component {
       })
   }
   componentDidUpdate (prevProps, prevState) {
-    const { page, filterInput } = this.state;
+    const { page} = this.state;
     if (prevState.page !== page) {
       this.load();
     }
@@ -57,8 +57,6 @@ class UsersLoader extends Component {
     return (
       <>
         {isError && <div>Some ERROR happening</div>}
-
-
         {isFetching && <div className={styles.loader}>Loading...</div>}
         <UserList users={users} prev={this.prev} next={this.next} />
           </>

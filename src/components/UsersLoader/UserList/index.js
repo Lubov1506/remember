@@ -1,10 +1,44 @@
 import React from 'react'
 import UserCard from '../UserCard'
 
-const UserList = props => {
-  const { users } = props
-  console.log(users);
-const cardArray = users.map(user => {
+class UserList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      filterInput: '',
+      defaultUsersArray: this.props.users,
+      filteredUsers: this.props.users
+    }
+  }
+  handleInput =(event)=>{
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+ 
+  }
+  componentDidUpdate(prevProps, prevState){
+    const {filterInput} = this.state
+    if(prevState.filterInput !== filterInput){
+      this.filter()
+    }
+  }
+
+  filter = () => {
+    const { filterInput, defaultUsersArray} = this.state
+    const filteredArray = defaultUsersArray.filter(user => {
+      const {
+        name: { first, last }
+      } = user
+      return first.includes(filterInput)
+    })
+    this.setState({
+      filteredUsers: filteredArray
+    })
+  }
+
+
+  renderCard =() => this.state.filteredUsers.map(user => {
     const {
       name: { first, last },
       picture: { medium },
@@ -23,15 +57,23 @@ const cardArray = users.map(user => {
       </UserCard>
     )
   })
-  const inlineStyles={
+  render(){
+
+  const inlineStyles = {
     display: 'flex',
     flexFlow: 'row wrap'
   }
+  const {prev, next} = this.props 
   return (
-    <ul style={inlineStyles}>
-        {cardArray}
-    </ul>
-  )
+    
+    <>
+      <h1>Users List</h1>
+      <button onClick={prev}>Prev</button>
+      <button onClick={next}>Next</button>
+      <input type='text' name='filterInput' onChange={this.handleInput}/>
+      <ul style={inlineStyles}>{this.renderCard()}</ul>
+    </>
+  )}
 }
 
 export default UserList

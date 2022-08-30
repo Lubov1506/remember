@@ -10,7 +10,8 @@ class UsersLoader extends Component {
       users: [],
       isFetching: false,
       isError: false,
-      page: 1
+      page: 1,
+      filterInput: ''
     }
   }
   componentDidMount = () => {
@@ -47,15 +48,17 @@ class UsersLoader extends Component {
       this.load()
     }
   }
+
+
   render () {
-    console.log('render')
+
     const { users, isFetching, isError } = this.state
 
     return (
       <>
         {isError ? <div>Error</div> : null}
-        <button onClick={this.prev}>Prev</button>
-        <button onClick={this.next}>Next</button>
+
+
         <UserList users={users} prev={this.prev} next={this.next} />
         {isFetching && <div className={styles['loader']}>Loading...</div>}
       </>

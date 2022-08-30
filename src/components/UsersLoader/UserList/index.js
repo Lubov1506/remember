@@ -25,17 +25,17 @@ class UserList extends React.Component {
   }
 
   filter = () => {
-    const { filterInput, defaultUsersArray} = this.state
+    const { filterInput, defaultUsersArray } = this.state;
     const filteredArray = defaultUsersArray.filter(user => {
       const {
-        name: { first, last }
-      } = user
-      return first.includes(filterInput)
-    })
+        name: { first, last },
+      } = user;
+      return first.includes(filterInput);
+    });
     this.setState({
-      filteredUsers: filteredArray
-    })
-  }
+      filteredUsers: filteredArray,
+    });
+  };
 
 
   renderCard =() => this.state.filteredUsers.map(user => {
@@ -58,6 +58,7 @@ class UserList extends React.Component {
     )
   })
   render(){
+    console.log(this.state.filteredUsers);
 
   const inlineStyles = {
     display: 'flex',

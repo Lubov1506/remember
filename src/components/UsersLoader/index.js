@@ -31,7 +31,7 @@ class UsersLoader extends Component {
           users: data.results
         })
       })
-      .catch(error => {
+      .catch(() => {
         this.setState({
           isError: true
         })
@@ -42,10 +42,10 @@ class UsersLoader extends Component {
         })
       })
   }
-  componentDidUpdate = (prevProps, prevState) => {
-    const { page } = this.state
+  componentDidUpdate (prevProps, prevState) {
+    const { page, filterInput } = this.state;
     if (prevState.page !== page) {
-      this.load()
+      this.load();
     }
   }
 
@@ -56,12 +56,12 @@ class UsersLoader extends Component {
 
     return (
       <>
-        {isError ? <div>Error</div> : null}
+        {isError && <div>Some ERROR happening</div>}
 
 
+        {isFetching && <div className={styles.loader}>Loading...</div>}
         <UserList users={users} prev={this.prev} next={this.next} />
-        {isFetching && <div className={styles['loader']}>Loading...</div>}
-      </>
+          </>
     )
   }
 }

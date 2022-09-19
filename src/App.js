@@ -1,15 +1,39 @@
 import React from 'react'
-import FlexContainer from './components/FlexContainer'
-import ImageWrapper from './components/ImageWrapper'
-import LayOut from './components/LayOut'
-import UsersLoader from './components/UsersLoader'
 
-class App extends React.Component {
-  render () {
-    return (
-      <UsersLoader/>
-    )
-  }
+function App (props) {
+  return (
+    <>
+      <p>
+        <button
+          onClick={() => {
+            window.close()
+          }}
+        >Close</button>
+         <button
+          onClick={() => {
+            window.open('http://google.com')
+          }}
+        >Open</button>
+      </p>
+      <p>
+        <button
+          onClick={() => {
+            window.location.assign('https://code.visualstudio.com/docs/?dv=linux64_deb')
+          }}
+        >Assign</button>
+         <button
+          onClick={() => {
+            window.location.reload()
+          }}
+        >Reload</button>
+        <button
+          onClick={() => {
+            window.location.replace('http://google.com')
+          }}
+        >Replace</button>
+      </p>
+    </>
+  )
 }
 
 export default App

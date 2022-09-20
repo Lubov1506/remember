@@ -4,6 +4,7 @@ import ToDoList from './components/ToDoList'
 import Form from './components/Form'
 import LayOut from './components/LayOut'
 import CounterPage from './pages/CounterPage'
+import LoaderPage from './pages/LoaderPage'
 function App (props) {
   return (
     <>
@@ -30,6 +31,9 @@ function App (props) {
           <li>
             <Link to='/counterpage'>CounterPage</Link>
           </li>
+          <li>
+            <Link to='/loaderpage'>LoaderPage</Link>
+          </li>
         </ul>
         <Routes>
           <Route exact path='/' element={<Home />} />
@@ -39,6 +43,8 @@ function App (props) {
           <Route path='/form' element={<Form />} />
           <Route path='/layout' element={<LayOut />} />
           <Route path='/counterpage' element={<CounterPage />} />
+          <Route path='/loaderpage' element={<LoaderPage
+ />} />
           <Route path='/*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 const inlineStyles = {
   border: '2px solid blue',
@@ -9,7 +9,7 @@ const inlineStyles = {
   margin: '0 auto',
   alignItems:'center'
 }
-class Counter extends Component {
+class Counter extends PureComponent {
   constructor (props) {
     super(props)
     this.state = {
@@ -26,15 +26,26 @@ class Counter extends Component {
         count: state.count-props.step
     }))
   }
+/*   shouldComponentUpdate(nextProps, nextState){
+   return nextProps.step===this.props.step
+     
+  } */
   render () {
     const { count } = this.state
-
+    const {step} = this.props
+    console.log('render counter');
     return (
       <div style={inlineStyles}>
         <h1>Count: {count}</h1>
+        <h1>Step: {step}</h1>
         <div> 
         <button onClick={this.decrement}>-</button>
         <button onClick={this.increment}>+</button>            
+        <button onClick={()=>{
+            this.setState({
+                count
+            })
+        }}>SET THIS VALUE</button>            
         </div>
       </div>
     )

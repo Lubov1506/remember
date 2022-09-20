@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import ToDoList from './components/ToDoList' 
 import Form from './components/Form'
 import LayOut from './components/LayOut'
+import CounterPage from './pages/CounterPage'
 function App (props) {
   return (
     <>
@@ -26,6 +27,9 @@ function App (props) {
           <li>
             <Link to='/form'>Form</Link>
           </li>
+          <li>
+            <Link to='/counterpage'>CounterPage</Link>
+          </li>
         </ul>
         <Routes>
           <Route exact path='/' element={<Home />} />
@@ -34,6 +38,7 @@ function App (props) {
           <Route path='/todolist' element={<ToDoList />} />
           <Route path='/form' element={<Form />} />
           <Route path='/layout' element={<LayOut />} />
+          <Route path='/counterpage' element={<CounterPage />} />
           <Route path='/*' element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

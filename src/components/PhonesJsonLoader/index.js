@@ -9,25 +9,6 @@ class PhonesJsonLoader extends Component {
       isError: false
     }
   }
-  componentDidMount(){
-    fetch('phones.json')
-    .then(res=>res.json())
-    .then(phones=>{
-        this.setState({
-            phones: phones,
-        })
-    })
-    .catch(()=>{
-        this.setState({
-            isError:true
-        })
-    })
-    .finally(()=>{
-        this.setState({
-            isFetching: false
-        })
-    })
-  }
   render () {
     const { phones, isFetching, isError } = this.state
     return (

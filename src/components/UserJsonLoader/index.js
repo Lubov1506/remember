@@ -10,6 +10,9 @@ class UserJsonLoader extends Component {
     }
   }
   componentDidMount () {
+    this.load()
+  }
+  load = () => {
     fetch('/user.json')
       .then(res => res.json())
       .then(users => {

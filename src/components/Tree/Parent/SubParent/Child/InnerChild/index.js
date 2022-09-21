@@ -5,11 +5,14 @@ const InnerChild = props => {
   return (
     <UserContext.Consumer>
       {contextValue => {
-        const {firstName, lastName} = contextValue
+        const [user, userLogout] = contextValue
         return (
-          <div style={{ border: '2px solid black', padding: '25px' }}>
-            InnerChild
-            {firstName} {lastName}
+          <div style={{ border: '2px solid black', padding: '25px'}}>
+            <p>
+            InnerChild  
+            </p>
+            <img src={user.img} style={{ width: '45px' }} />
+            {user.firstName} {user.lastName}
           </div>
         )
       }}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from './components/Header'
 import Tree from './components/Tree'
 import { UserContext } from './contexts'
 
@@ -14,11 +15,16 @@ class App extends Component {
       }
     }
   }
-
+  logOut = () => {
+    this.setState({
+      user: {}
+    })
+  }
   render () {
     return (
-      <UserContext.Provider value={this.state.user}>
-        <Tree user={this.state.user}/>
+      <UserContext.Provider value={[this.state.user, this.logOut]}>
+        <Header />
+        <Tree user={this.state.user} />
       </UserContext.Provider>
     )
   }

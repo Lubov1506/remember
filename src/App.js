@@ -5,6 +5,7 @@ import Form from './components/Form'
 import LayOut from './components/LayOut'
 import CounterPage from './pages/CounterPage'
 import LoaderPage from './pages/LoaderPage'
+import MouseMovePage from './pages/MouseMovePage/imdex'
 function App (props) {
   return (
     <>
@@ -34,6 +35,9 @@ function App (props) {
           <li>
             <Link to='/loaderpage'>LoaderPage</Link>
           </li>
+          <li>
+            <Link to='/mousepage'>MousePage</Link>
+          </li>
         </ul>
         <Routes>
           <Route exact path='/' element={<Home />} />
@@ -43,6 +47,7 @@ function App (props) {
           <Route path='/form' element={<Form />} />
           <Route path='/layout' element={<LayOut />} />
           <Route path='/counterpage' element={<CounterPage />} />
+          <Route path='/mousepage' element={<MouseMovePage />} />
           <Route path='/loaderpage' element={<LoaderPage
  />} />
           <Route path='/*' element={<PageNotFound />} />

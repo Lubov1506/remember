@@ -1,30 +1,46 @@
 import React, { Component } from 'react'
-import { UserContext } from '../../contexts'
+import { ThemeContext, UserContext } from '../../contexts'
+import style from './Header.module.css'
+import cx from 'classnames'
+import CONSTANTS from '../../constants'
+import Switch from '@mui/material/Switch';
+const { THEMES } = CONSTANTS
+
 class Header extends Component {
   render () {
     return (
-      <UserContext.Consumer>
-        {contextValue => {
-          const [user, userLogout] = contextValue
+      <ThemeContext.Consumer>
+        {([theme, setTheme]) => {
+          const classnames = cx(style.container, {
+            [style.lightTheme]: theme === THEMES.LIGHT,
+            [style.darkTheme]: theme === THEMES.DARK
+          })
           return (
-            <div
-              style={{
-                width: '100%',
-                boxSizing: 'border-box',
-                border: '2px solid black',
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'center',
-                padding: '10px'
+            <UserContext.Consumer>
+              {([user, userLogout]) => {
+                const nextTheme =
+                  theme === THEMES.DARK ? THEMES.LIGHT : THEMES.DARK
+                return (
+                  <div className={classnames}>
+
+                <Switch
+                      checked={theme === THEMES.DARK}
+                      onChange={() => {
+                        setTheme(nextTheme)
+                      }}
+                      inputProps={{ 'aria-label': 'controlled' }}
+                    />
+                    <img src={user.img} style={{ width: '45px' }} />
+                    {user.firstName} {user.lastName}
+                    <button onClick={userLogout}>LogOut</button>
+
+                  </div>
+                )
               }}
-            >
-              <img src={user.img} style={{ width: '45px' }} />
-              {user.firstName} {user.lastName}
-              <button onClick={userLogout}>LogOut</button>
-            </div>
+            </UserContext.Consumer>
           )
         }}
-      </UserContext.Consumer>
+      </ThemeContext.Consumer>
     )
   }
 }

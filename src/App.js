@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
 import Tree from './components/Tree'
-import { UserContext } from './contexts'
+import { UserContext, ThemeContext } from './contexts'
+import CONSTANTS from './constants'
+const {THEMES} = CONSTANTS
 
 class App extends Component {
   constructor (props) {
@@ -12,7 +14,8 @@ class App extends Component {
         firstName: 'John',
         lastName: 'Ivanov',
         img: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
-      }
+      },
+      theme: THEMES.DARK
     }
   }
   logOut = () => {
@@ -20,12 +23,20 @@ class App extends Component {
       user: {}
     })
   }
+  setTheme = theme =>{
+    this.setState({
+      theme
+    })
+  }
   render () {
+    const {user, theme}=this.state
     return (
-      <UserContext.Provider value={[this.state.user, this.logOut]}>
+      <ThemeContext.Provider value={[theme, this.setTheme]}>
+      <UserContext.Provider value={[user, this.logOut]}>
         <Header />
-        <Tree user={this.state.user} />
+        <Tree user={user} />
       </UserContext.Provider>
+      </ThemeContext.Provider>
     )
   }
 }

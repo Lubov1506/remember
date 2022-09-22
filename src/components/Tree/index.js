@@ -1,11 +1,27 @@
 import React from 'react'
 import Parent from './Parent'
+import { ThemeContext } from '../../contexts'
+import style from './Tree.module.css'
+import cx from 'classnames'
+import CONSTANTS from '../../constants'
+const {THEMES}= CONSTANTS
 
 const Tree = props => {
+
   return (
-    <div style={{ border: '2px solid black', padding: '25px' }}>
+    <ThemeContext.Consumer>
+      {([theme, setTheme])=>{
+        const classnames= cx(style.container,{
+          [style.lightTheme]: theme === THEMES.LIGHT,
+          [style.darkTheme]: theme === THEMES.DARK
+        })
+        return  (
+          <div className={classnames}>
      Tree <Parent />
-    </div>
+    </div>)
+      }}
+    </ThemeContext.Consumer>
+
   )
 }
 

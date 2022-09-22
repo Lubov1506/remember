@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
-import Tree from './components/Tree'
+import TreeWithTheme from './components/Tree'
 import { UserContext, ThemeContext } from './contexts'
 import CONSTANTS from './constants'
 const {THEMES} = CONSTANTS
@@ -34,7 +34,7 @@ class App extends Component {
       <ThemeContext.Provider value={[theme, this.setTheme]}>
       <UserContext.Provider value={[user, this.logOut]}>
         <Header />
-        <Tree user={user} />
+        <TreeWithTheme user={user} />
       </UserContext.Provider>
       </ThemeContext.Provider>
     )

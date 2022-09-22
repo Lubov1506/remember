@@ -4,18 +4,17 @@ import style from './Header.module.css'
 import cx from 'classnames'
 import CONSTANTS from '../../constants'
 import Switch from '@mui/material/Switch';
+import { withTheme } from '../../HOCs'
 const { THEMES } = CONSTANTS
 
 class Header extends Component {
-  render () {
-    return (
-      <ThemeContext.Consumer>
-        {([theme, setTheme]) => {
-          const classnames = cx(style.container, {
+  render () {  
+      const {theme, setTheme} = this.props
+            const classnames = cx(style.container, {
             [style.lightTheme]: theme === THEMES.LIGHT,
             [style.darkTheme]: theme === THEMES.DARK
           })
-          return (
+    return (
             <UserContext.Consumer>
               {([user, userLogout]) => {
                 const nextTheme =
@@ -39,10 +38,10 @@ class Header extends Component {
               }}
             </UserContext.Consumer>
           )
-        }}
-      </ThemeContext.Consumer>
-    )
+
   }
 }
 
-export default Header
+
+const HeaderWithTheme = withTheme(Header)
+export default HeaderWithTheme

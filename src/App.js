@@ -1,44 +1,22 @@
 import React, { Component } from 'react'
-import Header from './components/Header'
-import TreeWithTheme from './components/Tree'
-import { UserContext, ThemeContext } from './contexts'
-import CONSTANTS from './constants'
-const {THEMES} = CONSTANTS
+import SignUpForm from './components/SignUpForm'
 
 class App extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      user: {
-        id: 1,
-        firstName: 'John',
-        lastName: 'Ivanov',
-        img: 'https://cdn-icons-png.flaticon.com/512/149/149071.png'
-      },
-      theme: THEMES.DARK
-    }
+    this.state = {}
   }
-  logOut = () => {
-    this.setState({
-      user: {}
-    })
-  }
-  setTheme = theme =>{
-    this.setState({
-      theme
-    })
-  }
+
   render () {
-    const {user, theme}=this.state
-    return (
+    return <SignUpForm />
+  }
+}
+
+export default App
+/* 
       <ThemeContext.Provider value={[theme, this.setTheme]}>
       <UserContext.Provider value={[user, this.logOut]}>
         <Header />
         <TreeWithTheme user={user} />
       </UserContext.Provider>
-      </ThemeContext.Provider>
-    )
-  }
-}
-
-export default App
+      </ThemeContext.Provider> */

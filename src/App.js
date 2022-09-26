@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import Clicker from './components/Clicker'
 import Home from './components/Home'
+import Tracker from './components/Tracker'
 
 class App extends Component {
   constructor (props) {
@@ -8,7 +10,7 @@ class App extends Component {
   }
 
   render () {
-    return <Home />
+    return <Clicker />
   }
 }
 

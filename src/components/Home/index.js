@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import StopWatch from '../StopWatch';
 import Tracker from '../Tracker';
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <button onClick={handler}>click</button>
-            {isVisible && <Tracker/>}
+            {isVisible && <StopWatch/>}
         </div>
     );
 }

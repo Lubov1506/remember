@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SignUpForm from './components/SignUpForm'
+import Home from './components/Home'
 
 class App extends Component {
   constructor (props) {
@@ -8,15 +8,8 @@ class App extends Component {
   }
 
   render () {
-    return <SignUpForm />
+    return <Home />
   }
 }
 
 export default App
-/* 
-      <ThemeContext.Provider value={[theme, this.setTheme]}>
-      <UserContext.Provider value={[user, this.logOut]}>
-        <Header />
-        <TreeWithTheme user={user} />
-      </UserContext.Provider>
-      </ThemeContext.Provider> */

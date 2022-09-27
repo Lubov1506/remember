@@ -9,11 +9,11 @@ const {THEMES} = CONSTANTS
 
 const App = () => {
   const [theme, setTheme] = useState(THEMES.DARK)
-  console.log([theme, setTheme]);
+
   return (
     <div>
       <ThemeContext.Provider value={ [theme, setTheme]}>
-        <Tree />
+        <Home />
       </ThemeContext.Provider>
     </div>
   )

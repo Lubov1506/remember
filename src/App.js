@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import Clicker from './components/Clicker'
 import Home from './components/Home'
-import { UserContext } from './contexts'
+import { UserContext,ThemeContext } from './contexts'
 import Tracker from './components/Tracker'
+import Tree from './components/Tree'
+import CONSTANTS from './constants'
+const {THEMES} = CONSTANTS
 
 const App = () => {
-  const [user, setUser] = useState({
-    id: 1,
-    name: 'John Doe'
-  })
+  const [theme, setTheme] = useState(THEMES.DARK)
+  console.log([theme, setTheme]);
   return (
     <div>
-      <UserContext.Provider value={[user, setUser]}>
-        <Home />
-      </UserContext.Provider>
+      <ThemeContext.Provider value={ [theme, setTheme]}>
+        <Tree />
+      </ThemeContext.Provider>
     </div>
   )
 }

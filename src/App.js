@@ -11,7 +11,7 @@ const App = () => {
   })
   return (
     <div>
-      <UserContext.Provider value={user}>
+      <UserContext.Provider value={[user, setUser]}>
         <Home />
       </UserContext.Provider>
     </div>

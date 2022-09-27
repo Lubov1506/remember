@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {SIGN_UP_SCHEMA} from '../../utils/validationSchema'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import Input from './Input'
 
 const initialValues = {
   firstName: '',
@@ -19,6 +20,7 @@ const SignUpForm = props => {
         {formikProps => {
           return (
             <Form>
+              <Input name='email'/>
               <Field type='text' name='firstName' />
               <ErrorMessage name='firstName'/>
               <Field type='text' name='lastName' />

@@ -5,6 +5,7 @@ import { UserContext,ThemeContext } from './contexts'
 import Tracker from './components/Tracker'
 import Tree from './components/Tree'
 import CONSTANTS from './constants'
+import Loader from './components/Loader'
 const {THEMES} = CONSTANTS
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <div>
       <ThemeContext.Provider value={ [theme, setTheme]}>
-        <Home />
+        <Loader />
       </ThemeContext.Provider>
     </div>
   )

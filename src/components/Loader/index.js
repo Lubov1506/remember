@@ -1,23 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import {useData} from '../../hooks/useData'
 import { getUsers } from '../../api'
 
 const Loader = () => {
-  const [users, setUsers] = useState([])
-  const [isFetching, setIsFetching] = useState(true)
-  const [error, setError] = useState(false)
-
-  useEffect(() => {
-    getUsers()
-      .then(users => {
-        setUsers(users)
-      })
-      .catch(() => {
-        setError(true)
-      })
-      .finally(() => {
-        setIsFetching(false)
-      })
-  }, [])
+    const {data: users, isFetching, error} = useData(getUsers)
   return (
     <>
       {isFetching && <div>Loading</div>}

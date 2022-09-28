@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect, useContext } from 'react'
+/* import React, { Component, useState, useEffect, useContext } from 'react'
 
 const ConsumerComponent = () => {
   const name = useContext(NameContext)
@@ -9,4 +9,4 @@ const ConsumerComponent = () => {
     </div>
   )
 }
-export default ConsumerComponent
+export default ConsumerComponent */

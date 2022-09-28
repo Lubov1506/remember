@@ -6,6 +6,7 @@ import Tracker from './components/Tracker'
 import Tree from './components/Tree'
 import CONSTANTS from './constants'
 import Loader from './components/Loader'
+import CounterExample from './components/CounExample'
 const {THEMES} = CONSTANTS
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
   return (
     <div>
       <ThemeContext.Provider value={ [theme, setTheme]}>
-        <Clicker />
+        <CounterExample />
       </ThemeContext.Provider>
     </div>
   )

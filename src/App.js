@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import SignUpPage from './pages/SignUpPage'
-
+import Chat from './components/Chat'
+import ChatPage from './pages/ChatPage'
 
 const App = () => {
-
   return (
     <div>
-<SignUpPage/>
+      <Chat />
     </div>
   )
 }

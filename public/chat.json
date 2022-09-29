@@ -1,0 +1,37 @@
+{
+    "users": [{
+        "id":1,
+        "name": "John",
+        "imageSrc": "http://sdf"
+    },
+    {
+        "id":2,
+        "name": "Mike",
+        "imageSrc": "http://sdf"
+    },
+    {
+        "id":3,
+        "name": "Fred",
+        "imageSrc": "http://sdf"
+    }],
+    "messages":[{
+        "id": 1,
+        "body": "hello",
+        "authorID": 2
+    },
+    {
+        "id": 2,
+        "body": "Hi",
+        "authorID": 3
+    },
+    {
+        "id": 3,
+        "body": "Bye",
+        "authorID": 1
+    },
+    {
+        "id": 4,
+        "body": "What are you?",
+        "authorID": 4
+    }]
+}

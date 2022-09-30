@@ -25,7 +25,7 @@ const Chat = () => {
         })
       );
   }, []);
-
+  
   return (
     <div>
       {state.error && <div>Some error </div>}

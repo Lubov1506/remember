@@ -9,6 +9,7 @@ import SignUpPage from './components/SignUp'
 import ChatPage from './pages/ChatPage'
 import { reducer } from './reducer'
 import NavBar from './components/NavBar'
+import Sandbox from './components/Sandbox'
 
 const { THEMES } = CONSTANTS
 
@@ -51,6 +52,9 @@ const App = () => {
             <li>
               <Link to='/chat'>ChatPage</Link>
             </li>
+            <li >
+              <Link to='/sandbox' >Sandbox</Link>
+              </li>
           </ul>
         </nav>
         <Routes>
@@ -58,6 +62,7 @@ const App = () => {
           <Route path='/clicker' element={<Clicker />} />
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/chat' element={<ChatPage />} />
+          <Route path='/sandbox' element={<Sandbox />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

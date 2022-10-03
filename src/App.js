@@ -10,6 +10,7 @@ import ChatPage from './pages/ChatPage'
 import { reducer } from './reducer'
 import NavBar from './components/NavBar'
 import Sandbox from './components/Sandbox'
+import UsersPhoneBook from './components/UsersPhoneBook'
 
 const { THEMES } = CONSTANTS
 
@@ -55,6 +56,9 @@ const App = () => {
             <li >
               <Link to='/sandbox' >Sandbox</Link>
               </li>
+              <li >
+              <Link to='/usersphonebook' >Users Phonebook</Link>
+              </li>
           </ul>
         </nav>
         <Routes>
@@ -63,6 +67,7 @@ const App = () => {
           <Route path='/signup' element={<SignUpPage />} />
           <Route path='/chat' element={<ChatPage />} />
           <Route path='/sandbox' element={<Sandbox />} />
+          <Route path='/usersphonebook' element={<UsersPhoneBook />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

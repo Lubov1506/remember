@@ -1,18 +1,34 @@
-import React, {useEffect, useState} from 'react';
-import { getUsers } from '../../api';
+import React, { useEffect, useState, useReducer } from 'react'
+import { getUsers } from '../../api'
+import CurrentUserPhone from './CurrentUserPhone'
+import styles from './UsersPhoneBook.module.css'
+import {reducer} from './reducer'
+import UsersList from './UsersList'
 
 const UsersPhoneBook = () => {
-    const [userData, setUserData] = useState([])
-    useEffect(()=>{
-getUsers().then((data)=>{
-setUserData(data)
+const [state, dispatch] = useReducer(reducer, {
+    users: [],
+    currentUser: null
 })
-    }, [])
-    return (
-        <div>
-        {userData.map(item=>JSON.stringify(item.name.last))}
-        </div>
-    );
+useEffect(()=>{
+    getUsers().then(data=>{
+        dispatch({
+            type : "USERS_DATA_SUCCESS_LOAD",
+            data
+        })
+    })
+
+}, [])
+
+
+  return (
+    <section className={styles.container}>
+      <div className={styles['phone-book']}>
+    <UsersList users={state.users}/>
+      </div>
+      <CurrentUserPhone />
+    </section>
+  )
 }
 
-export default UsersPhoneBook;
+export default UsersPhoneBook

@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.phone-book{
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+}

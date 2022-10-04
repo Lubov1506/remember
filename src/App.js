@@ -11,6 +11,7 @@ import { reducer } from './reducer'
 import NavBar from './components/NavBar'
 import Sandbox from './components/Sandbox'
 import UsersPhoneBook from './components/UsersPhoneBook'
+import PhoneBook from './components/PhoneBook'
 
 const { THEMES } = CONSTANTS
 
@@ -59,6 +60,9 @@ const App = () => {
               <li >
               <Link to='/usersphonebook' >Users Phonebook</Link>
               </li>
+              <li >
+              <Link to='/phonebook' >Phonebook</Link>
+              </li>
           </ul>
         </nav>
         <Routes>
@@ -68,6 +72,7 @@ const App = () => {
           <Route path='/chat' element={<ChatPage />} />
           <Route path='/sandbox' element={<Sandbox />} />
           <Route path='/usersphonebook' element={<UsersPhoneBook />} />
+          <Route path='/phonebook' element={<PhoneBook />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

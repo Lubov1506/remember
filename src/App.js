@@ -3,15 +3,11 @@ import React, { useState, useReducer } from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { ThemeContext, AppContext } from './contexts'
 import { CONSTANTS, ACTIONS } from './constants'
-import Loader from './components/Loader'
-import Clicker from './components/Clicker'
-import SignUpPage from './components/SignUp'
-import ChatPage from './pages/ChatPage'
 import { reducer } from './reducer'
 import NavBar from './components/NavBar'
-import Sandbox from './components/Sandbox'
-import UsersPhoneBook from './components/UsersPhoneBook'
 import PhoneBook from './components/PhoneBook'
+import ToDoList from './components/ToDoList'
+import Todo from './components/Todo'
 
 const { THEMES } = CONSTANTS
 
@@ -43,37 +39,22 @@ const App = () => {
         <nav>
           <ul>
             <li>
-              <Link to='/loader'>Loader</Link>
+              <Link to='/phonebook'>Phonebook</Link>
             </li>
             <li>
-              <Link to='/clicker'>Clicker</Link>
+              <Link to='/todolist'>ToDoList</Link>
             </li>
             <li>
-              <Link to='/signup'>SignUpPage</Link>
+              <Link to='/todo'>ToDo</Link>
             </li>
-            <li>
-              <Link to='/chat'>ChatPage</Link>
-            </li>
-            <li >
-              <Link to='/sandbox' >Sandbox</Link>
-              </li>
-              <li >
-              <Link to='/usersphonebook' >Users Phonebook</Link>
-              </li>
-              <li >
-              <Link to='/phonebook' >Phonebook</Link>
-              </li>
+
           </ul>
         </nav>
         <Routes>
-          <Route path='/loader' element={<Loader />} />
-          <Route path='/clicker' element={<Clicker />} />
-          <Route path='/signup' element={<SignUpPage />} />
-          <Route path='/chat' element={<ChatPage />} />
-          <Route path='/sandbox' element={<Sandbox />} />
-          <Route path='/usersphonebook' element={<UsersPhoneBook />} />
           <Route path='/phonebook' element={<PhoneBook />} />
-        </Routes>
+          <Route path='/todolist' element={<ToDoList />} />
+          <Route path='/todo' element={<Todo />} />
+          </Routes>
       </BrowserRouter>
     </AppContext.Provider>
   )

@@ -6,9 +6,12 @@ const Todo = () => {
   const [todos, setTodos] = useState([])
 
   const addTodo = inputValue => {
+    if([...inputValue.textInput].length>0){
     const copyTodos = [...todos]
     copyTodos.push(inputValue)
-    setTodos(copyTodos)
+    setTodos(copyTodos)      
+    }
+
   }
 
   const handleToggle = (id) => {

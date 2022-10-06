@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './List.module.css'
 
 const List = props => {
@@ -11,7 +11,7 @@ const List = props => {
 
   const deleteTodo = e => {
     e.preventDefault()
-    console.log(e.target.id);
+
     props.filter(e.target.id)
   }
 
